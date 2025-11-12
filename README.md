@@ -86,20 +86,5 @@ Unauthorized or malicious use of Plexi is strictly prohibited.
 Contributions are welcome!
 Fork the repository and open a pull request to suggest improvements, new features, or optimizations.
 
-🧠 Credits
-
-Developed by GHAPOCHAN
-
-Inspired by Krypton and other professional-grade anti-nuke frameworks
-
-Powered by Discord.js v14
-
-📞 Support
-
-For help, issues, or feature requests:
-
-Join the Plexi Support Server
-
-Or open an issue on GitHub
 
 💫 Protect your Discord. Stay secure with Plexi Anti Nuke.
