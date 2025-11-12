@@ -16,7 +16,7 @@ import fetch from 'node-fetch';
 
 // ====== CONFIG / DEFAULTS (edit these) ======
 const DEFAULTS = {
-  PREFIX: process.env.PREFIX || 'k!',
+  PREFIX: process.env.PREFIX || ',',
   THRESHOLDS: {
     bans: { count: 3, windowSec: 10 },
     kicks: { count: 5, windowSec: 10 },
