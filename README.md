@@ -45,7 +45,61 @@ It ensures your community remains **safe, stable, and resilient** — even under
 - (Optional) MongoDB for backups and persistent storage
 
 ### 📦 Installation
-```bash
-git clone https://github.com/yourusername/Plexi-AntiNuke.git
-cd Plexi-AntiNuke
+git clone [this repo](https://github.com/cosmonium0/Plexi-Anti-Nuke.git)
+cd Plexi-Anti-Nuke
 npm install
+
+# 🚀 Start the Bot
+`node index.js`
+
+⚙️ Configuration
+
+Create a .env file in your root directory:
+
+🧾 Example Logs
+`[SECURITY] Unauthorized bot detected — Removed automatically.
+[PROTECTION] Channel deletion prevented by User: Unknown#0000 (ID: 112233445566)
+[ACTION LOG] Admin banned user: @Spammer — Reason: Mass mentions`
+
+💼 Permissions Required
+
+Administrator (Recommended for full protection)
+
+Manage Channels
+
+Manage Roles
+
+View Audit Log
+
+Kick & Ban Members
+
+Plexi is designed to run in secured, high-risk servers where reliability and instant reaction are critical.
+
+⚠️ Disclaimer
+
+Plexi Anti Nuke does not collect personal user data.
+All actions are limited to what the Discord API allows for authorized bots.
+Unauthorized or malicious use of Plexi is strictly prohibited.
+
+💻 Contributing
+
+Contributions are welcome!
+Fork the repository and open a pull request to suggest improvements, new features, or optimizations.
+
+🧠 Credits
+
+Developed by GHAPOCHAN
+
+Inspired by Krypton and other professional-grade anti-nuke frameworks
+
+Powered by Discord.js v14
+
+📞 Support
+
+For help, issues, or feature requests:
+
+Join the Plexi Support Server
+
+Or open an issue on GitHub
+
+💫 Protect your Discord. Stay secure with Plexi Anti Nuke.
