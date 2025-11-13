@@ -1,12 +1,11 @@
 /**
- * bot.js — Plexi Anti Nuke (rebranded, polished messages)
+ * bot.js — Plexi Anti Nuke
  *
  * Dependencies: discord.js, better-sqlite3, dotenv, node-fetch (or use global fetch in Node 18+)
  * npm i discord.js better-sqlite3 dotenv node-fetch
  *
  * Configure via .env: DISCORD_TOKEN, BOT_OWNER_ID (optional), LOG_WEBHOOK_URL (optional), PREFIX (optional)
  *
- * This single-file starter is rebranded and uses professional messaging for mod logs and replies.
  */
 
 import 'dotenv/config';
@@ -28,7 +27,7 @@ const DEFAULTS = {
   AUTO_RESTORE: true,
   MAX_AUTO_BANS: 5,
   BRAND_NAME: 'Plexi Anti Nuke',
-  BRAND_COLOR: 0x2E8B57 // a professional teal-ish color
+  BRAND_COLOR: 0x2E8B57 // a teal-ish color
 };
 // ============================================
 
