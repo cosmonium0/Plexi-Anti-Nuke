@@ -13,7 +13,7 @@ import { Client, GatewayIntentBits, Partials, AuditLogEvent, PermissionsBitField
 import Database from 'better-sqlite3';
 import fetch from 'node-fetch';
 
-// ====== CONFIG / DEFAULTS (edit these) ======
+// === (edit these) ===
 const DEFAULTS = {
   PREFIX: process.env.PREFIX || ',',
   THRESHOLDS: {
@@ -27,9 +27,9 @@ const DEFAULTS = {
   AUTO_RESTORE: true,
   MAX_AUTO_BANS: 5,
   BRAND_NAME: 'Plexi Anti Nuke',
-  BRAND_COLOR: 0x2E8B57 // a teal-ish color
+  BRAND_COLOR: 0x2E8B57 
 };
-// ============================================
+// ===
 
 // ENV
 const TOKEN = process.env.DISCORD_TOKEN;
@@ -68,7 +68,7 @@ client.once('ready', () => {
   console.log(`${DEFAULTS.BRAND_NAME} started as ${client.user.tag}`);
 });
 
-// professional mod-log helper: sends embed to webhook if configured, otherwise console
+// mod-log helper: sends embed to webhook if configured, otherwise console
 async function modLog(guild, title, description, fields = []) {
   const embed = {
     title,
@@ -212,20 +212,20 @@ async function punishExecutor(guild, executorId, note = '') {
       await member.ban({ reason: `${DEFAULTS.BRAND_NAME}: Automated enforcement. ${note}` }).catch(e => {
         modLog(guild, 'Auto-ban failed', `Failed to ban <@${executorId}>: ${e.message}`);
       });
-      await modLog(guild, 'Automated ban applied', `Executor <@${executorId}> was banned by automated enforcement.`);
+      await modLog(guild, 'Automated ban applied', `Executor <@${executorId}> was banned by Plexi.`);
     } else if (punish === 'kick') {
       await member.kick(`${DEFAULTS.BRAND_NAME}: Automated enforcement. ${note}`).catch(e => {
         modLog(guild, 'Auto-kick failed', `Failed to kick <@${executorId}>: ${e.message}`);
       });
-      await modLog(guild, 'Automated kick applied', `Executor <@${executorId}> was kicked by automated enforcement.`);
+      await modLog(guild, 'Automated kick applied', `Executor <@${executorId}> was kicked by Plexi.`);
     } else if (punish === 'demote' || punish === 'removeRoles') {
       const rolesToRemove = member.roles.cache.filter(r => r.id !== guild.id).map(r => r.id);
       for (const rid of rolesToRemove) {
-        await member.roles.remove(rid, `${DEFAULTS.BRAND_NAME}: Role removal as enforcement.`).catch(() => null);
+        await member.roles.remove(rid, `${DEFAULTS.BRAND_NAME}: Role removal as Plexi.`).catch(() => null);
       }
-      await modLog(guild, 'Roles removed', `All elevated roles removed from <@${executorId}> by automated enforcement.`);
+      await modLog(guild, 'Roles removed', `All elevated roles removed from <@${executorId}> by Plexit.`);
     } else {
-      await modLog(guild, 'Unknown enforcement', `Guild configuration specified an unknown action: ${punish}.`);
+      await modLog(guild, 'Unknown404', `Guild configuration specified an unknown action: ${punish}.`);
     }
   } catch (e) {
     console.error('punishExecutor error', e);
@@ -248,7 +248,7 @@ async function handleSuspiciousAction(guild, actionType, targetId, executorId) {
   if (count >= conf.count) {
     await modLog(guild,
       `Enforcement triggered — ${actionType}`,
-      `User <@${executorId}> exceeded the configured threshold for **${actionType}**. Initiating automated enforcement and mitigation.`);
+      `User <@${executorId}> exceeded the configured threshold for **${actionType}**. Initiating appropriate actions.`);
 
     await punishExecutor(guild, executorId, `Threshold exceeded for action type: ${actionType}`);
 
@@ -281,7 +281,7 @@ client.on('roleDelete', async (role) => {
     if (executor) {
       await handleSuspiciousAction(guild, 'roleDeletes', role.id, executor);
     } else {
-      await modLog(guild, 'Role deleted', `Role **${role.name}** (${role.id}) was deleted — executor not identified.`);
+      await modLog(guild, 'Role deleted', `Role **${role.name}** (${role.id}) was deleted - executor not identified.`);
     }
   } catch (e) {
     console.error('roleDelete handler error', e);
@@ -298,7 +298,7 @@ client.on('channelDelete', async (channel) => {
     if (executor) {
       await handleSuspiciousAction(guild, 'channelDeletes', channel.id, executor);
     } else {
-      await modLog(guild, 'Channel deleted', `Channel **${channel.name}** (${channel.id}) was deleted — executor not identified.`);
+      await modLog(guild, 'Channel deleted', `Channel **${channel.name}** (${channel.id}) was deleted - executor not identified.`);
     }
   } catch (e) {
     console.error('channelDelete handler error', e);
@@ -314,7 +314,7 @@ client.on('guildBanAdd', async (ban) => {
     if (executor) {
       await handleSuspiciousAction(guild, 'bans', ban.user.id, executor);
     } else {
-      await modLog(guild, 'Member banned', `User **${ban.user.tag}** was banned — executor not identified.`);
+      await modLog(guild, 'Member banned', `User **${ban.user.tag}** was banned - executor not identified.`);
     }
   } catch (e) {
     console.error('guildBanAdd handler', e);
@@ -366,12 +366,12 @@ client.on('messageCreate', async (msg) => {
   const canManage = msg.member.permissions.has(PermissionsBitField.Flags.ManageGuild);
 
   if (!isOwner && !canManage) {
-    return msg.reply({ content: 'You must be the server owner or have Manage Server permission to run Plexi configuration commands.' });
+    return msg.reply({ content: 'You must be the server owner or have Manage Server permission to run Plexi config commands.' });
   }
 
   if (cmd === 'whitelist') {
     const sub = args.shift();
-    if (!sub) return msg.reply('Usage: k!whitelist add|remove @user | k!whitelist list');
+    if (!sub) return msg.reply('Usage: ,whitelist add|remove @user | ,whitelist list');
     if (sub === 'add') {
       const u = msg.mentions.users.first();
       if (!u) return msg.reply('Please mention the user to whitelist.');
@@ -412,7 +412,7 @@ client.on('messageCreate', async (msg) => {
         `Only Server Owners or users with Manage Server permission may use these commands.`
     });
   } else {
-    return msg.reply({ content: 'Unknown command. Use k!help for a list of administrative commands.' });
+    return msg.reply({ content: 'Unknown command. Use ,help for a list of commands.' });
   }
 });
 
