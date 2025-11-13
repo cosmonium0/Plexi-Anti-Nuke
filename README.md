@@ -1,7 +1,6 @@
-# 🌐 Plexi Anti Nuke — Advanced Discord Protection Bot
+# 🎅🏿 Plexi Anti Nuke
 
-Plexi Anti Nuke is an advanced **security and moderation bot** built to protect your Discord servers from malicious raids, unauthorized actions, and mass-destruction attempts.  
-It ensures your community remains **safe, stable, and resilient** — even under coordinated attacks. (Adjust it if you wanna use it as a extension to the moderation bot)
+(Adjust it if you wanna use it as a extension to the moderation bot)
 
 ---
 
@@ -42,11 +41,14 @@ It ensures your community remains **safe, stable, and resilient** — even under
 ### 🧩 Prerequisites
 - Node.js 18+ or higher
 - A valid Discord Bot Token
-- (Optional) MongoDB for backups and persistent storage
+- (Optional) MongoDB for backups and storage
 
 ### 📦 Installation
-git clone [this repo](https://github.com/cosmonium0/Plexi-Anti-Nuke.git)
+
+git clone [this repo](https://github.com/cosmonium0/Plexi-Anti-Nuke)
+
 cd Plexi-Anti-Nuke
+
 npm install
 
 # 🚀 Start the Bot
@@ -57,34 +59,11 @@ npm install
 Create a .env file in your root directory:
 
 🧾 Example Logs
-`[SECURITY] Unauthorized bot detected — Removed automatically.
+[SECURITY] Unauthorized bot detected — Removed automatically.
+
 [PROTECTION] Channel deletion prevented by User: Unknown#0000 (ID: 112233445566)
-[ACTION LOG] Admin banned user: @Spammer — Reason: Mass mentions`
 
-💼 Permissions Required
-
-Administrator (Recommended for full protection)
-
-Manage Channels
-
-Manage Roles
-
-View Audit Log
-
-Kick & Ban Members
-
-Plexi is designed to run in secured, high-risk servers where reliability and instant reaction are critical.
-
-⚠️ Disclaimer
-
-Plexi Anti Nuke does not collect personal user data.
-All actions are limited to what the Discord API allows for authorized bots.
-Unauthorized or malicious use of Plexi is strictly prohibited.
-
-💻 Contributing
+[ACTION LOG] Admin banned user: @Spammer — Reason: Mass mentions
 
 Contributions are welcome!
 Fork the repository and open a pull request to suggest improvements, new features, or optimizations.
-
-
-💫 Protect your Discord. Stay secure with Plexi Anti Nuke.
